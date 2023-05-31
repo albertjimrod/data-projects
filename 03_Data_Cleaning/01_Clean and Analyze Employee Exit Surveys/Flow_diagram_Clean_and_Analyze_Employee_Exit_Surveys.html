@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet href="treestyles.css" type="text/css"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><!--This file has been created with toxhtml.xsl--><head><meta content="text/html; charset=UTF-8" http-equiv="Content-Type" /><title>
+      Clean and Analyze
+    
+      Employee Exit Surveys
+    </title><link rel="stylesheet" href="Flow_diagram_Clean_and_Analyze_Employee_Exit_Surveys.html_files/treestyles.css" type="text/css" /><script type="text/javascript" src="Flow_diagram_Clean_and_Analyze_Employee_Exit_Surveys.html_files/marktree.js"> 
+	</script></head><body><div class="basetop"><a onclick="expandAll(document.getElementById('base'))" href="#">Expand</a> -
+<a onclick="collapseAll(document.getElementById('base'))" href="#">Collapse</a></div><div class="basetext" id="base"><ul>
+	<li class="col" id="FMID_9938712FM"><div class="nodecontent"><p>
+      Clean and Analyze
+    </p><p>
+      Employee Exit Surveys
+    </p></div>
+		<ul class="subexp">
+	<li class="col" id="FMID_394487318FM"><div class="nodecontent">introduccion</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1542797303FM"><div class="nodecontent"><p>
+      - Que actividad vamos a tocar.
+    </p><p>
+      - Origen de los datos.
+    </p><p>
+      - Diccionario de datos
+    </p><p>
+      - Preguntas a responder
+    </p></div></li></ul></li>
+	<li class="col" id="FMID_1410215664FM"><div class="nodecontent">Check &amp; load data</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_726539416FM"><div class="nodecontent"><p>
+      - Comprobar si el dataset es correcto:
+    </p><p /><p>
+      - file -i y file -k
+    </p><p>
+      - chardet 
+    </p></div></li></ul></li>
+	<li class="col" id="FMID_1598373343FM"><div class="nodecontent">Data exploration</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1121281231FM"><div class="nodecontent"><p>
+      uso de .info (verbose=False/True)
+    </p><p /><p>
+      con false hago una pequeña aproximación
+    </p><p /><p>
+      Para tener una idea rápida de como es/son los dataframes
+    </p><p /><p>
+      - pequeño resumen
+    </p><p /><p>
+      hago de nuevo uso de .info con verbose = True asi lo veo todo
+    </p><p /><p>
+      - el resumen lo extiendo mas , hablando de la asimetria de los df, si hay o no Null data en los df, si las columnas deben o no ser  corregidas o borradas en caso de que no proporcionen la información necesaria.
+    </p><p /><p>
+      - miro si existen o no valores NaN (creo una funcion)
+    </p><p /></div></li>
+	<li class="basic" id="FMID_536978680FM"><div class="nodecontent"><p>
+      la funcion me dice el numero de NaN por columna de cada df
+    </p></div></li>
+	<li class="basic" id="FMID_478947761FM"><div class="nodecontent"><p>
+      Visualizo las primeras lineas de ambos dataframes para comprobar que no aparece nada raro.
+    </p><p /><p>
+      Vuelvo a hacer un resumen en el que veo que:
+    </p><p /><p>
+      - existen columnas iguales con nombre diferente.
+    </p><p /><p>
+      - que hay columnas que pueden ser eliminadas
+    </p><p /><p /><p>
+      Sin embargo en una de las celdas aparece "Not Stated" que son valores NaN pero que no se reconocen como tal asi que es necesario volver a cargar el dataframe con el parametro correcto:
+    </p><p /><p><b>dete_survey_Not_Stated = pd.read_csv('csv/dete_survey.csv',na_values = 'Not Stated') </b></p><p /><p>
+      Vuelvo a cargar y hacer una inspeccion visual de las primeras filas para comprobar que se ha arreglado.
+    </p></div></li></ul></li>
+	<li class="col" id="FMID_1603568139FM"><div class="nodecontent">Drop columns</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1165486261FM"><div class="nodecontent"><p>
+      Hago uso de la representacion grafica para:
+    </p><p /><p>
+      Ver la mejora en relacion a los datos NaN que no habiamos reconocido.
+    </p><p /><p>
+      Entender que vamos a eliminar de los datasets
+    </p><p /><p>
+      eliminar las columnas
+    </p></div></li>
+	<li class="col" id="FMID_86107997FM"><div class="nodecontent"><p>
+      Estandarizacion de los nombres de las columnas:
+    </p></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_849580466FM"><div class="nodecontent"><p>
+      Estandarizacion de los nombres de las columnas:
+    </p><p /><p>
+      Uno de los objetivos es la combinación de ambos dataframes por lo que es importante el renombrado de las columnas restantes.
+    </p><p /><p>
+      se puede hacer asi:
+    </p><p><b>dete_survey_updated.columns = dete_survey_updated.columns.str.lower().str.rstrip().str.replace(' ','_') </b></p><p /><p>
+      o se puede hacer con el uso de .rename:
+    </p><p /><p><b>tafe_survey_updated.rename({'Record ID': 'id', </b></p><p><b>                            'LengthofServiceCurrent. Length of Service at current workplace (in years)': 'role_service'}, </b></p><p><b>                          axis=1, inplace=True) </b></p><p><b>tafe_survey_updated.info()</b></p></div></li></ul></li></ul></li>
+	<li class="col" id="FMID_606828866FM"><div class="nodecontent">Filtrado de Data</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_218437092FM"><div class="nodecontent"><p>
+      Observación de las bajas del trabajador en ambos dataframes
+    </p><p /><p>
+      haciendo un unique y un value counts en la serie donde nos interese de ambos dataframes.
+    </p><p /><p /><p><font size="3">dete_survey_updated['separationtype'].value_counts(dropna=False)</font></p><p /><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="3">Age Retirement                          285
+Resignation-Other reasons               150
+Resignation-Other employer               91
+Resignation-Move overseas/interstatevalue_counts     70
+Voluntary Early Retirement (VER)         67
+Ill Health Retirement                    61
+Other                                    49
+Contract Expired                         34
+Termination                              15
+Name: separationtype, dtype: int64</font><font size="3">tafe_survey_updated['separationtype'].value_counts(dropna=False)</font></pre><p /><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="3">Resignation                 340
+Contract Expired            127
+Retrenchment/ Redundancy    104
+Retirement                   82
+Transfer                     25
+Termination                  23
+NaN                           1
+Name: separationtype, dtype: int6</font></pre></div></li>
+	<li class="col" id="FMID_523814921FM"><div class="nodecontent"><p>
+      Filtrado booleano:
+    </p><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px" /></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1391736420FM"><div class="nodecontent"><p>
+      `dete`
+    </p><p /><p>
+      Para hacer la recopilación de aquellas bajas que estan unicamente relacionadas con el abandono por parte del trabajador y por lo tanto NO tener en cuenta que ya no esten en plantilla por retiro o porque el contrato expiro hay que hacer un filtrado booleano incorporando las situaciones que antes hemos visto con el .value_counts()
+    </p><p /><p><b>dete_resignations=dete_survey_updated[(dete_survey_updated['separationtype']=='Resignation-Other reasons') | </b></p><p><b>                                      (dete_survey_updated['separationtype']=='Resignation-Other employer') | </b></p><p><b>                                      (dete_survey_updated['separationtype']=='Resignation-Move overseas/interstate')].copy() </b></p><p /><p><b>dete_resignations['separationtype'].value_counts(dropna=False)</b></p><p /><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="3">Resignation-Other reasons               150
+Resignation-Other employer               91
+Resignation-Move overseas/interstate     70
+Name: separationtype, dtype: int</font></pre></div></li>
+	<li class="basic" id="FMID_1077236617FM"><div class="nodecontent"><p>
+      `tafe`
+    </p><p>
+      tafe_resignations = tafe_survey_updated[tafe_survey_updated['separationtype']=='Resignation'].copy()
+    </p><p>
+      tafe_resignations['separationtype'].value_counts(dropna=False)
+    </p><p /><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="3">Resignation    340
+Name: separationtype, dtype: int64</font></pre></div></li></ul></li></ul></li>
+	<li class="col" id="FMID_1333714320FM"><div class="nodecontent"><p>
+      Verificando DATA inconsistencias
+    </p></div>
+		<ul class="subexp">
+	<li class="col" id="FMID_1433279931FM"><div class="nodecontent"><p>
+      Una de las inconsistencias en los datos puede estar en los años.
+    </p><p /><p>
+      Let's verify any major **inconsistencies**.
+    </p><p /><p>
+      Focus on verifying **years** in the `cease_date `and `dete_start_date` columns make sense.
+    </p><p /><p>
+      - **`cease_date` is the last year of the person's employment**
+    </p><p /><p /><p>
+      - **`dete_start_date` is the person's first year of employment**
+    </p><p /><p /><p>
+      #### It wouldn't make sense to have years after the current date.
+    </p></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_787786624FM"><div class="nodecontent"><p>
+       verificacion de las fechas tanto de inicio como de final en un dataframe o en otro y del tipo de dato que tiene cada una de las series, es importante ya que no son diferentes.
+    </p><p /><p>
+      dete_resignations['dete_start_date'].value_counts(dropna=False).sort_index(ascending = False).head(10)
+    </p><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">2013.0    10
+2012.0    21
+2011.0    24
+2010.0    17
+2009.0    13
+2008.0    22
+2007.0    21
+2006.0    13
+2005.0    15
+2004.0    14
+Name: dete_start_date, dtype: int64</font></pre><p /><p /><p>
+      dete_resignations['dete_start_date'].unique()
+    </p><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">array([2005., 1994., 2009., 1997., 1998., 2007.,   nan, 1982., 1980.,
+       1973., 1995., 2003., 2006., 2011., 1977., 1974., 1976., 1993.,
+       2008., 1986., 2002., 2004., 2010., 2012., 1989., 1999., 1996.,
+       2000., 1991., 1992., 2001., 1988., 1990., 1985., 1963., 2013.,
+       1972., 1983., 1971., 1984., 1975., 1987.])
+
+</font><font face="SansSerif" size="3">dete_resignations['dete_start_date'].isna().sum() # checking amount of NaN</font><font size="2">28
+28</font></pre></div></li></ul></li>
+	<li class="col" id="FMID_1309113876FM"><div class="nodecontent"><p>
+      comparacion entre columnas mapa de calor
+    </p></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_569913983FM"><div class="nodecontent"><p>
+      Para comparar dos tres columnas de un mismo dataframe lo que debo hacer es convertir a la columna comun en indice de un nuevo df y visualizar el mapa de calor.
+    </p><p /><p><b>combined_cease_date = dete_resignations.set_index('position') </b></p><p><b>combined_cease_date.index.unique().sort_values()</b></p><p /><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">Index([                               'Business Service Manager',
+                                                       'Cleaner',
+                                              'Guidance Officer',
+                  'Head of Curriculum/Head of Special Education',
+                                                         'Other',
+                                          'Professional Officer',
+                                                'Public Servant',
+                                   'School Administrative Staff',
+       'School Based Professional Staff (Therapist, nurse, etc)',
+                                               'Schools Officer',
+                                                       'Teacher',
+                                                  'Teacher Aide',
+                                             'Technical Officer',
+                                                             nan],
+      dtype='object', name='position')</font></pre><p /><p><b>sns.heatmap(combined_cease_date[['dete_start_date','cease_date']].isna(), cbar=False) </b></p><p><b>plt.show()</b></p></div></li>
+	<li class="basic" id="FMID_945089730FM"><div class="nodecontent"><p>
+      En ese mapa de calor lo que se visualiza son filas con las profesiones y una linea blanca en el caso de que no tenga datos.
+    </p><p /><p>
+      tanto para la fecha de inicio como para la fecha de cese.
+    </p></div></li>
+	<li class="basic" id="FMID_241327055FM"><div class="nodecontent"><p>
+      extraccion unicamente del año en dete_resignations[cease_date]
+    </p><p /></div></li></ul></li>
+	<li class="col" id="FMID_1078755418FM"><div class="nodecontent">box plot</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_977345460FM"><div class="nodecontent"><p>
+      para poder hacer uso del boxplot debo de tener los datos adecuados en la serie con la que quiero trabajar.
+    </p><p /><p>
+      - 1. Extract part of "string" corresponds to **year** in `dete_resignations['cease_date']`.
+    </p><p /><p /><p>
+      - 2. Convert the year "string" into a **float** data type.
+    </p><p /><p /><p><b># using vectorized method </b></p><p><b>dete_resignations['cease_date'] = dete_resignations['cease_date'].str[-4:].astype('float').copy() # getting Years</b></p><p /><p>
+      dete_resignations['cease_date'].head(3)
+    </p><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">3    2012.0
+5    2012.0
+8    2012.0
+Name: cease_date, dtype: float6</font></pre></div></li></ul></li>
+	<li class="basic" id="FMID_1409917447FM"><div class="nodecontent">histograma en ambos datasets</div></li></ul></li>
+	<li class="col" id="FMID_785679649FM"><div class="nodecontent"><p>
+      Creando una nueva columna en dete_resignations
+    </p></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1713385562FM"><div class="nodecontent"><p>
+      Como el objetivo es unir ambos dataframes y el tiempo en servicio es algo que además de ser muy importante es necesario para nuestro estudio, se crea una columna en el dataframe con la diferencia entre los años de servicio y los años en los que la gente empezó a trabajar.
+    </p><p /><p /><p><b>dete_resignations['institute_service'] = dete_resignations['cease_date'] - dete_resignations['dete_start_date']</b></p></div></li></ul></li>
+	<li class="col" id="FMID_262842868FM"><div class="nodecontent"><p>
+      identificando la instatisfacción en ambos datasets
+    </p></div>
+		<ul class="subexp">
+	<li class="col" id="FMID_1345144573FM"><div class="nodecontent"><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><code style="font-family: monospace; font-size: 14px; padding-top: 1px; padding-bottom: 1px; padding-right: 5px; padding-left: 5px; color: rgb(0, 0, 0); background-color: rgb(239, 240, 241); white-space: pre-wrap; border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px"><font face="monospace" size="2" color="rgb(0, 0, 0)">tafe_survey_updated</font></code><font size="2">: </font></p><ul style="margin-top: 0; margin-bottom: 9px; list-style: disc; padding-left: 0; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">Contributing Factors. Dissatisfaction </font></p></li><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">Contributing Factors. Job Dissatisfaction </font></p></li></ul><font color="rgb(0, 0, 0)" face="Helvetica Neue, Helvetica, Arial, sans-serif" size="2"><br align="start" size="2" style="letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)" /></font><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><code style="font-family: monospace; font-size: 14px; padding-top: 1px; padding-bottom: 1px; padding-right: 5px; padding-left: 5px; color: rgb(0, 0, 0); background-color: rgb(239, 240, 241); white-space: pre-wrap; border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px"><font face="monospace" size="2" color="rgb(0, 0, 0)">dete_survey_updated</font></code><font size="2">: </font></p><ul style="margin-top: 0; margin-bottom: 9px; list-style: disc; padding-left: 0; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">job_dissatisfaction </font></p></li><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">dissatisfaction_with_the_department </font></p></li><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">physical_work_environment </font></p></li><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">lack_of_recognition </font></p></li><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">lack_of_job_security </font></p></li><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">work_location </font></p></li><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">employment_conditions </font></p></li><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">work_life_balance </font></p></li><li><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left"><font size="2">workload </font></p></li></ul></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_996268846FM"><div class="nodecontent"><p>
+      tafe_survey_updated['Contributing Factors. Dissatisfaction'].unique()
+    </p><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">array([nan, '-', 'Contributing Factors. Dissatisfaction '], dtype=object)</font></pre></div></li>
+	<li class="basic" id="FMID_398428192FM"><div class="nodecontent"><p>
+      tafe_survey_updated['Contributing Factors. Job Dissatisfaction'].unique()
+    </p><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">array([nan, '-', 'Job Dissatisfaction'], dtype=object</font></pre></div></li></ul></li>
+	<li class="col" id="FMID_1938435341FM"><div class="nodecontent"><p>
+      Setting the bolean values on multiple columns with in `tafe_resignations_up` and `dete_resignations`
+    </p></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_5900087FM"><div class="nodecontent"><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">One of the steps to identify the dissatisfaction of the teaching staff is to see what are the factors that contribute to that dissatisfaction and that we can see in the two columns that exist in </font><code style="font-family: monospace; font-size: 14px; padding-top: 1px; padding-bottom: 1px; padding-right: 5px; padding-left: 5px; color: rgb(0, 0, 0); background-color: rgb(239, 240, 241); white-space: pre-wrap; border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px"><font face="monospace" size="2" color="rgb(0, 0, 0)">tafe_survey_updated</font></code><font size="2"><br size="2" /></font></p><p style="margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)" /><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">However when we look within the series and see what the content is, it strikes us that we have values, <strong style="font-weight: bold"><b>nan</b></strong>, we have what we are looking for and we have a sign <strong style="font-weight: bold"><b>-</b></strong> that we will make count as False, for this we will create the following function. </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)" /><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">def updating_vals(element): </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    """ </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    This function only changes the sign - by False state everything else keeps it the same. </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    Keyword arguments: </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    element -- serie to examine </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    return: True if not "-" or NaN </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    return: False if equal "-" </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    """ </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    if pd.isnull(element):        </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">        return np.nan </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    elif element=='-': </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">        return False </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">    else: </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">        return True </font></p><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)" /><p style="margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; text-align: left; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)" /></div></li>
+	<li class="basic" id="FMID_1112183292FM"><div class="nodecontent"><p>
+      tafe_resignations
+    </p><p /><p>
+      columns = ['Contributing Factors. Dissatisfaction',
+    </p><p>
+                 'Contributing Factors. Job Dissatisfaction']
+    </p><p /><p>
+      tafe_resignations['dissatisfied'] = tafe_resignations[columns].applymap(updating_vals).any(axis=1, skipna=False)
+    </p><p>
+      tafe_resignations_up = tafe_resignations.copy()
+    </p><p>
+      tafe_resignations_up['dissatisfied'].value_counts(dropna=False)
+    </p><p /><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">False    241
+True      99
+Name: dissatisfied, dtype: int6</font></pre></div></li>
+	<li class="basic" id="FMID_1009085243FM"><div class="nodecontent"><p>
+      dete_resignations
+    </p><p /><p>
+      columnas = ['job_dissatisfaction',
+    </p><p>
+                  'dissatisfaction_with_the_department',
+    </p><p>
+                  'physical_work_environment',
+    </p><p>
+                  'lack_of_recognition',
+    </p><p>
+                  'lack_of_job_security',
+    </p><p>
+                  'work_location',
+    </p><p>
+                  'employment_conditions',
+    </p><p>
+                  'work_life_balance',
+    </p><p>
+                  'workload']
+    </p><p /><p>
+      dete_resignations[columnas].dtypes
+    </p><p /><p /><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">job_dissatisfaction                    bool
+dissatisfaction_with_the_department    bool
+physical_work_environment              bool
+lack_of_recognition                    bool
+lack_of_job_security                   bool
+work_location                          bool
+employment_conditions                  bool
+work_life_balance                      bool
+workload                               bool
+dtype: object</font></pre><p /><p>
+      dete_resignations['dissatisfied'] = dete_resignations[columnas].any(axis=1, skipna=False)
+    </p><p>
+      dete_resignations_up = dete_resignations.copy()
+    </p><p /><p>
+      dete_resignations_up['dissatisfied'].value_counts(dropna=False) # only boolean
+    </p><p /><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">False    162
+True     149
+Name: dissatisfied, dtype: int64</font></pre></div></li></ul></li></ul></li>
+	<li class="col" id="FMID_1509519480FM"><div class="nodecontent">combinando dataframes</div>
+		<ul class="subexp">
+	<li class="col" id="FMID_429310451FM"><div class="nodecontent"><p>
+      Combining `dete_resignations_up` and `tafe_resignations_up`
+    </p><p /><p>
+      First, let's add a column to each dataframe that will allow us to easily distinguish between the two.
+    </p><p /><p>
+      - Add a column named institute to `dete_resignations_up`. Each row should contain the value **DETE**.
+    </p><p /><p /><p>
+      - Add a column named institute to `tafe_resignations_up`. Each row should contain the value **TAFE**.
+    </p><p /><p /><p><b>dete_resignations_up['institute']='DETE' # help for differenciate df's. </b></p><p><b>tafe_resignations_up['institute']='TAFE' </b></p><p /><p><b>combined = pd.concat([dete_resignations_up,tafe_resignations_up], axis = 0) </b># axis = 0 means columns.
+    </p></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_337677006FM"><div class="nodecontent"><p><b>combined_updated = combined.dropna(axis = 1, thresh = 500).copy() # combined_updated </b></p><p /><p>
+      thresh especifica el numero de NULL necesarios para eliminar la fila o la columna, esto dependera del valor que tenga el parametro axis, 0 por defecto o 1 para las columnas.
+    </p><p /><p>
+      We still have some columns left in the dataframe that we don't need to complete our analysis, so using the `DataFrame.dropna()` method to drop **any columns with less than 500** with non null values.
+    </p><p /><p>
+      Until now we had not done anything with the NaN values neither in one df nor in the other because it was at this point where with the use of dropna (axis, thresh) we were going to take care of the NaN values
+    </p><p /><p /><p>
+      As a result we see that the reduction of columns is significant, going from 53 to 10 and gives us an idea of the number of NaN values we had.
+    </p><p /><p /><p>
+      Joining two dataframes has a consequence...
+    </p><p /><p>
+      La necesidad de resetear el indice del nuevo dataframe
+    </p><p /><p><b>combined_updated.reset_index(drop=True, inplace=True) </b></p></div></li></ul></li>
+	<li class="basic" id="FMID_1233288954FM"><div class="nodecontent"><h3 id="Cleaning-service_column" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: bold; line-height: 1; color: rgb(0, 0, 0); margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 18.004px; font-style: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">Ahora que ya tenemos el dataframe unido vamos a  Cleaning </font><code style="font-family: monospace; font-size: 18.004px; padding-top: 2px; padding-bottom: 2px; padding-right: 4px; padding-left: 4px; color: rgb(0, 0, 0); background-color: rgb(239, 240, 241); white-space: pre-wrap; border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px"><font face="monospace" size="2" color="rgb(0, 0, 0)">service_column </font></code></h3><h3 id="Cleaning-service_column" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: bold; line-height: 1; color: rgb(0, 0, 0); margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 18.004px; font-style: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)" /><h3 id="Cleaning-service_column" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: bold; line-height: 1; color: rgb(0, 0, 0); margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 18.004px; font-style: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">Comprobamos que tipos de datos hay en esa serie. </font></h3><h3 id="Cleaning-service_column" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: bold; line-height: 1; color: rgb(0, 0, 0); margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 18.004px; font-style: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)" /><h3 id="Cleaning-service_column" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: bold; line-height: 1; color: rgb(0, 0, 0); margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 18.004px; font-style: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="2">La idea es tener valores numericos limpios por lo que hemos de eliminar todo lo que sean simbolos, texto y demás. </font></h3><p /><p>
+      combined_updated[c_name] = combined_updated[c_name].str.replace("[.^0][1-2^0]","",regex=True).copy()
+    </p><p>
+      combined_updated[c_name] = combined_updated[c_name].str.replace("Less than 1 year","0.5").copy()
+    </p><p>
+      combined_updated[c_name] = combined_updated[c_name].str.replace("More than 20 years","25").copy()
+    </p><p>
+      combined_updated[c_name] = combined_updated[c_name].str.replace("1-2","1.5").copy()
+    </p><p>
+      combined_updated[c_name] = combined_updated[c_name].str.replace("3-4","3.5").copy()
+    </p><p>
+      combined_updated[c_name] = combined_updated[c_name].str.replace("5-6","5.6").copy()
+    </p><p>
+      combined_updated[c_name] = combined_updated[c_name].str.replace("7-10","8.5").copy()
+    </p><p>
+      combined_updated[c_name] = pd.to_numeric(combined_updated[c_name], errors='coerce')
+    </p><p /><p /><p>
+      al final lo que hago es hacer un cast de tipo float
+    </p><p>
+      combined_updated[c_name].astype(float)
+    </p></div></li></ul></li>
+	<li class="col" id="FMID_634216219FM"><div class="nodecontent">mapeado</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_266966267FM"><div class="nodecontent"><p><font size="3">para que quede mas claro, lo ideal es agrupar por tramos de edades a los profesores creando una funcion: </font></p><p /><p style="text-align: left"><font face="FreeMono" size="3">def mapper(serie): </font></p><p style="text-align: left"><font face="FreeMono" size="3">    """Change a value in years for a experience category: New - Experienced - Established - Veteran </font></p><p style="text-align: left"><font face="FreeMono" size="3">    </font></p><p style="text-align: left"><font face="FreeMono" size="3">    Keyword arguments: </font></p><p style="text-align: left"><font face="FreeMono" size="3">    serie -- series of the dataframe you want to convert </font></p><p style="text-align: left"><font face="FreeMono" size="3">    return -- depending on the values returns the categories. </font></p><p style="text-align: left"><font face="FreeMono" size="3">    """ </font></p><p style="text-align: left"><font face="FreeMono" size="3">    if pd.isnull(serie): </font></p><p style="text-align: left"><font face="FreeMono" size="3">        return np.nan </font></p><p style="text-align: left"><font face="FreeMono" size="3">    elif (serie &lt; 3): # Less than 3 years at a company </font></p><p style="text-align: left"><font face="FreeMono" size="3">        return 'New' </font></p><p style="text-align: left"><font face="FreeMono" size="3">    </font></p><p style="text-align: left"><font face="FreeMono" size="3">    elif ((serie &gt;= 3) &amp; (serie &lt;= 6.0)): # 3-6 years at a company </font></p><p style="text-align: left"><font face="FreeMono" size="3">        return 'Experienced' </font></p><p style="text-align: left"><font face="FreeMono" size="3">    </font></p><p style="text-align: left"><font face="FreeMono" size="3">    elif ((serie &gt;= 7.0) &amp; (serie &lt;= 10.0)): # 7-10 years at a company </font></p><p style="text-align: left"><font face="FreeMono" size="3">        return 'Established' </font></p><p style="text-align: left"><font face="FreeMono" size="3">    </font></p><p style="text-align: left"><font face="FreeMono" size="3">    elif (serie &gt;= 11.0): #  11 or more years at a company </font></p><p style="text-align: left"><font face="FreeMono" size="3">        return 'Veteran'</font></p></div></li></ul></li>
+	<li class="col" id="FMID_1978543002FM"><div class="nodecontent"><p>
+      Analisis inicial:
+    </p></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1462864935FM"><div class="nodecontent"><p>
+      En este punto se vuelve a hacer un .info para ver cuales son los datos con los que contamos.
+    </p><p /><p>
+      Hacemos un resumen de que es lo que  tenemos a nivel de datos y que es lo que estamos buscando.
+    </p></div></li>
+	<li class="col" id="FMID_453954405FM"><div class="nodecontent"><h2 id="The-initial-questions-were-as-follows:" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: bold; line-height: 1; color: rgb(0, 0, 0); margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 21.994px; font-style: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="3">The initial questions were as follows:</font><a class="anchor-link" href="http://localhost:8888/notebooks/Documentos/albertjimrod/data-projects/03_Data_Cleaning/Clean%20and%20Analyze%20Employee%20Exit%20Surveys/Guided%20Project%20Clean%20and%20Analyze%20Employee%20Exit%20Surveys.ipynb#The-initial-questions-were-as-follows:" style="color: rgb(41, 110, 170); text-decoration: none; padding-top: 0px; padding-bottom: 0px; padding-right: 20px; padding-left: 20px"><font color="rgb(41, 110, 170)" /></a></h2><ul style="margin-top: 0; margin-bottom: 9px; list-style: disc; padding-left: 0; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><li><font size="2">1.</font><code style="font-family: monospace; font-size: 14px; padding-top: 2px; padding-bottom: 2px; padding-right: 4px; padding-left: 4px; color: rgb(0, 0, 0); background-color: rgb(239, 240, 241); white-space: pre-wrap; border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px"><font face="monospace" size="2" color="rgb(0, 0, 0)">Are employees who only worked for the institutes for a short period of time resigning due to some kind of dissatisfaction?</font></code></li></ul><ul style="margin-top: 0; margin-bottom: 9px; list-style: disc; padding-left: 0; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><li><font size="2">2.</font><code style="font-family: monospace; font-size: 14px; padding-top: 2px; padding-bottom: 2px; padding-right: 4px; padding-left: 4px; color: rgb(0, 0, 0); background-color: rgb(239, 240, 241); white-space: pre-wrap; border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px"><font face="monospace" size="2" color="rgb(0, 0, 0)">What about employees who have been there longer?</font></code></li></ul><ul style="margin-top: 0; margin-bottom: 9px; list-style: disc; padding-left: 0; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><li><font size="2">3.</font><code style="font-family: monospace; font-size: 14px; padding-top: 2px; padding-bottom: 2px; padding-right: 4px; padding-left: 4px; color: rgb(0, 0, 0); background-color: rgb(239, 240, 241); white-space: pre-wrap; border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px"><font face="monospace" size="2" color="rgb(0, 0, 0)">Are younger employees resigning due to some kind of dissatisfaction?</font></code></li></ul><ul style="margin-top: 0; margin-bottom: 9px; list-style: disc; padding-left: 0; color: rgb(0, 0, 0); font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><li><font size="2">4.</font><code style="font-family: monospace; font-size: 14px; padding-top: 2px; padding-bottom: 2px; padding-right: 4px; padding-left: 4px; color: rgb(0, 0, 0); background-color: rgb(239, 240, 241); white-space: pre-wrap; border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px"><font face="monospace" size="2" color="rgb(0, 0, 0)">What about older employees?</font></code></li></ul></div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_905175907FM"><div class="nodecontent"><p>
+      general idea of how dissatisfied are the different categories:
+    </p><p /><p>
+      mediante el uso de pd.pivot_tables(values=xxx, index=hhh, aggfunc=)
+    </p><table border="1" class="dataframe" style="border-spacing: 0px; background-color: rgb(255, 255, 255); float: left; margin-left: 0px; margin-right: 0px; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; color: rgb(0, 0, 0); font-size: 12px; margin-top: 0; font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: start; text-transform: none; white-space: normal; word-spacing: 0px"><tr style="text-align: right; vertical-align: middle; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium"><th style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; font-weight: bold" /><th style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; font-weight: bold"><font size="2">dissatisfied </font></th></tr><tr style="text-align: right; vertical-align: middle; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium"><th style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; font-weight: bold"><font size="2">service_cat </font></th><th style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; font-weight: bold" /></tr><tr style="text-align: right; vertical-align: middle; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; background-color: rgb(245, 245, 245); background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null"><th style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; font-weight: bold"><font size="2">Established </font></th><td style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium"><font size="2">51.612903 </font></td></tr><tr style="text-align: right; vertical-align: middle; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium"><th style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; font-weight: bold"><font size="2">Experienced </font></th><td style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium"><font size="2">34.302326 </font></td></tr><tr style="text-align: right; vertical-align: middle; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; background-color: rgb(245, 245, 245); background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null"><th style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; font-weight: bold"><font size="2">New </font></th><td style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium"><font size="2">29.533679 </font></td></tr><tr style="text-align: right; vertical-align: middle; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; background-image: null; background-repeat: repeat; background-attachment: scroll; background-position: null"><th style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium; font-weight: bold"><font size="2">Veteran </font></th><td style="padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; text-align: right; vertical-align: middle; line-height: normal; white-space: normal; border-top-style: none; border-top-width: medium; border-right-style: none; border-right-width: medium; border-bottom-style: none; border-bottom-width: medium; border-left-style: none; border-left-width: medium"><font size="2">48.529412</font></td></tr></table></div></li>
+	<li class="basic" id="FMID_96185227FM"><div class="nodecontent"><p>
+      una grafica tambien
+    </p><p /><p><font size="2">comb_serv_diss = combined_updated.pivot_table(values='dissatisfied', index='service_cat', aggfunc=np.mean) </font></p><p /><p><font size="2">comb_serv_diss.plot(kind='barh',title="service category vs % dissatisfied",xlim=(0,1),legend=True) </font></p><p><font size="2">plt.show() </font></p><p /></div></li>
+	<li class="basic" id="FMID_440500412FM"><div class="nodecontent"><h3 id="--1.-Employees-who-only-worked-for-the-institutes-for-a-short-period-of-time:" style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif; font-weight: bold; line-height: 1; color: rgb(0, 0, 0); margin-top: 0; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; font-size: 18.004px; font-style: normal; letter-spacing: normal; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; word-spacing: 0px; background-color: rgb(255, 255, 255)"><font size="3"><b>Employees who only worked for the institutes for a short period of time</b></font></h3><p /><p>
+      Are employees who only worked for the institutes for a short period of time resigning due to some kind of dissatisfaction?
+    </p><p /><pre style="font-family: monospace; font-size: 14px; display: block; padding-top: 1px; padding-bottom: 1px; padding-right: 0px; padding-left: 0px; margin-top: 0px; margin-right: 0px; margin-bottom: 0px; margin-left: 0px; line-height: inherit; color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); border-top-style: none; border-top-width: 0px; border-right-style: none; border-right-width: 0px; border-bottom-style: none; border-bottom-width: 0px; border-left-style: none; border-left-width: 0px; white-space: pre-wrap; vertical-align: baseline; font-style: normal; font-weight: 400; letter-spacing: normal; text-align: left; text-indent: 0px; text-transform: none; word-spacing: 0px"><font size="2">Resignation                             63.157895
+Resignation-Other reasons               15.789474
+Resignation-Move overseas/interstate    12.280702
+Resignation-Other employer               8.771930
+Name: separationtype, dtype: float64</font></pre><p /><p /><p>
+      The various reasons why new people leave the job are varied, however job resignations are very high being at the top of the list.
+    </p></div></li>
+	<li class="basic" id="FMID_359838052FM"><div class="nodecontent" /></li></ul></li></ul></li></ul></li></ul></div></body></html>
