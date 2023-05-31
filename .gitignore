@@ -33,3 +33,9 @@
 
 # Jupyter
 .ipynb_checkpoints/
+
+# pdf files
+*.pdf
+
+# odf files
+*.odt
