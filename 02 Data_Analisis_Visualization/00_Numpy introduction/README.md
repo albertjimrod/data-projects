@@ -1,3 +1,3 @@
 - Pandas and NumPy Fundamentals
 
-![Exploring](Exploring Ebay Car Sales Data v2.svg)
+![Exploring Ebay Car Sales Data v2](Exploring Ebay Car Sales Data v2.png)
