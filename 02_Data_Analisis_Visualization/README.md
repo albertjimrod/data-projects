@@ -8,7 +8,7 @@ En este repositorio, encontrarás cuatro proyectos de análisis y visualización
 
 ## Proyecto 1: Exploración de Datos de Ventas de Automóviles en eBay
 
-[Exploring eBay Car Sales Data](https://github.com/albertjimrod/data-projects/blob/51eaa88de3b363a2541ab900ec9fa2b23ffe8627/02_Data_Analisis_Visualization/00_Numpy%20introduction/Exploring%20Ebay%20Car%20Sales%20Data%20v2.ipynb)
+[Exploring eBay Car Sales Data](https://github.com/albertjimrod/data-projects/blob/main/02%20Data_Analisis_Visualization/00_Numpy%20introduction/Exploring%20Ebay%20Car%20Sales%20Data%20v2.ipynb)
 
 En este proyecto, exploré los datos de ventas de automóviles en eBay. Utilizando la biblioteca NumPy para realizar operaciones numéricas en los datos y analizar patrones en los precios y las características de los automóviles.
 
