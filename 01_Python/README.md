@@ -8,7 +8,7 @@
 
 ## Proyecto 1: Perfiles Rentables para la App Store y Google Play Markets
 
-- [Profitable App Profiles for the App Store and Google Play Markets](https://github.com/albertjimrod/data-projects/tree/main/01_Python/00-Profitable%20App%20Profiles%20for%20the%20App%20Store%20and%20Google%20Play%20Markets)
+- [Profitable App Profiles for the App Store and Google Play Markets](https://github.com/albertjimrod/data-projects/blob/abca2a5e2b32e498bd3cb925da64250f11bff7f5/01%20Python/00-Profitable%20App%20Profiles%20for%20the%20App%20Store%20and%20Google%20Play%20Markets/Profitable%20App%20Profiles%20For%20The%20App%20Store%20And%20Google%20Play%20Markets.ipynb)
 
 
 
