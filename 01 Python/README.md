@@ -1,4 +1,4 @@
- de Análisis de Datos en Python
+# Proyectos de Análisis de Datos en Python, Numpy y Pandas.
 
 <img src="READ.jpeg" alt="READ" style="width:200px;"/>
 
