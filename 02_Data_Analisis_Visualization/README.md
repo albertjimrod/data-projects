@@ -67,7 +67,7 @@ En este proyecto, estudié el estilo de visualización de FiveThirtyEight, un co
 
 ### Conceptos clave relacionados:
 
-- Visualización de datos con Matplotlib.
+- Visualización de datos con Matplotlib. 
 - Gráficos de líneas y series temporales.
 - Gráficos de barras, histogramas y distribuciones.
 - Diseño de visualizaciones de datos para una audiencia.
