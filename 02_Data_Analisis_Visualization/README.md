@@ -42,7 +42,7 @@ En este proyecto, exploré datos de tráfico de la autopista I-94 una importante
 
 ## Proyecto 3: Visualización de Ganancias Basada en Carreras Universitarias
 
-[Visualizing Earnings Based On College Majors](https://github.com/albertjimrod/data-projects/blob/main/02%20Data_Analisis_Visualization/02_Storytelling%20Data%20Visualization%20and%20Information%20Design/Visualizing%20Earnings%20Based%20On%20College%20Majors/Guided%20Project%20Visualizing%20Earnings%20Based%20On%20College%20Majors_version_DQ.ipynb)
+[Visualizing Earnings Based On College Majors](https://github.com/albertjimrod/data-projects/blob/62655f7e19b10e4d56d9d81bf18e68dc8dc5df75/02_Data_Analisis_Visualization/02_Storytelling%20Data%20Visualization%20and%20Information%20Design/Visualizing%20Earnings%20Based%20On%20College%20Majors/Guided%20Project%20Visualizing%20Earnings%20Based%20On%20College%20Majors_version_DQ.ipynb)
 
 En este proyecto, visualizamos datos de ganancias basadas en carreras universitarias. Utilizando pandas y Matplotlib, exploramos las relaciones entre las elecciones de carreras universitarias y las ganancias potenciales.
 
@@ -58,7 +58,7 @@ Principios de Gestalt y atributos preatentivos.
 
 ## Proyecto 4: Estudio de Caso de Estilos de Matplotlib: FiveThirtyEight
 
-[Matplotlib Styles: FiveThirtyEight Case Study](https://github.com/albertjimrod/data-projects/blob/main/02%20Data_Analisis_Visualization/03_Matplotlib%20Styles%20FiveThirtyEight%20Case%20Study/Matplotlib%20Styles%20FiveThirtyEight%20Case%20Study.ipynb)
+[Matplotlib Styles: FiveThirtyEight Case Study](https://github.com/albertjimrod/data-projects/blob/62655f7e19b10e4d56d9d81bf18e68dc8dc5df75/02_Data_Analisis_Visualization/03_Matplotlib%20Styles%20FiveThirtyEight%20Case%20Study/Matplotlib%20Styles%20FiveThirtyEight%20Case%20Study.ipynb)
 
 
 En este proyecto, estudié el estilo de visualización de FiveThirtyEight, un conocido sitio web de noticias y análisis. estudié Matplotlib para recrear y personalizar visualizaciones en el estilo característico de FiveThirtyEight.
