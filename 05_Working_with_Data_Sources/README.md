@@ -1,4 +1,8 @@
 ## Análisis 1: Consultas en SQL
+
+![CIA World Factbook](http://www.export-u.com/CIA-700%20x%202500%208-8-19.jpg)
+
+
 #### `Connect SQLite querys in factbook NO plot`
 
 En este análisis, me conecté a la base de datos (SQLite) de la CIA Factbook a traves de Jupyter y realicé consultas pertinentes utilizando el lenguaje SQL. Aunque no generé gráficos en este caso, estuve haciendo consultas para comprender mejor el funcionamiento de este método y responder a mis preguntas personales en relación a Jupyter y SQL.
