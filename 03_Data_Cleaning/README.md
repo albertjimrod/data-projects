@@ -1,7 +1,7 @@
 
 ¡Bienvenido/a a mi repositorio de proyectos de análisis de datos! En este repositorio, encontrarás una serie de proyectos en los que he aplicado los conceptos de Pandas y Expresiones Regulares que se mencionan a continuación:
 
-![README](README.jpeg)
+<img src="README.jpeg" alt="README" style="width:200px;"/>
 
 ## Combina datos usando Pandas
 
