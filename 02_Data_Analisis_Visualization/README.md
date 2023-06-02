@@ -22,7 +22,7 @@ En este proyecto, exploré los datos de ventas de automóviles en eBay. Utilizan
 
 ## Proyecto 2: Fundamentos de Visualización de Datos - Tráfico en la Autopista I-94
 
-[Traffic on the I-94 Interstate highway](https://github.com/albertjimrod/data-projects/blob/main/02%20Data_Analisis_Visualization/01_Data%20Visualization%20Fundamentals/Traffic%20on%20the%20I-94%20Interstate%20highway.ipynb)
+[Traffic on the I-94 Interstate highway](https://github.com/albertjimrod/data-projects/blob/62655f7e19b10e4d56d9d81bf18e68dc8dc5df75/02_Data_Analisis_Visualization/01_Data%20Visualization%20Fundamentals/Traffic%20on%20the%20I-94%20Interstate%20highway.ipynb)
 
 En este proyecto, exploré datos de tráfico de la autopista I-94 una importante vía de transporte en Estados Unidos que se extiende desde Montana hasta Michigan, pasando por varios estados.La autopista I-94 es conocida por ser una ruta principal para los viajes de larga distancia, ya que conecta ciudades importantes como Chicago, Milwaukee, Minneapolis y Detroit.y utilizamos la biblioteca pandas para analizar y visualizar los patrones de tráfico en diferentes momentos del día y en diferentes días de la semana.
 
