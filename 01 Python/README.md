@@ -1,6 +1,6 @@
  de Análisis de Datos en Python
 
-<img src="README.jpeg" alt="README" style="width:200px;"/>
+<img src="READ.jpeg" alt="READ" style="width:200px;"/>
 
 
 
