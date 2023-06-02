@@ -1,4 +1,7 @@
 # Proyectos de Limpieza y Análisis de Datos
+
+<img src="READ.jpeg" alt="README" style="width:200px;"/>
+
 <br >
 En este repositorio, encontrarás cinco proyectos de limpieza y análisis de datos que abarcan una variedad de conceptos clave. A continuación, proporcionaré una breve descripción de cada proyecto y cómo se relacionan con los conceptos clave mencionados.
 
