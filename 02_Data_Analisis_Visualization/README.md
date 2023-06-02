@@ -8,7 +8,7 @@ En este repositorio, encontrarás cuatro proyectos de análisis y visualización
 
 ## Proyecto 1: Exploración de Datos de Ventas de Automóviles en eBay
 
-[Exploring eBay Car Sales Data](https://github.com/albertjimrod/data-projects/blob/main/02%20Data_Analisis_Visualization/00_Numpy%20introduction/Exploring%20Ebay%20Car%20Sales%20Data%20v2.ipynb)
+[Exploring eBay Car Sales Data](https://github.com/albertjimrod/data-projects/blob/51eaa88de3b363a2541ab900ec9fa2b23ffe8627/02_Data_Analisis_Visualization/00_Numpy%20introduction/Exploring%20Ebay%20Car%20Sales%20Data%20v2.ipynb)
 
 En este proyecto, exploré los datos de ventas de automóviles en eBay. Utilizando la biblioteca NumPy para realizar operaciones numéricas en los datos y analizar patrones en los precios y las características de los automóviles.
 
@@ -20,7 +20,7 @@ En este proyecto, exploré los datos de ventas de automóviles en eBay. Utilizan
 
 ## Proyecto 2: Fundamentos de Visualización de Datos - Tráfico en la Autopista I-94
 
-[Traffic on the I-94 Interstate highway](https://github.com/albertjimrod/data-projects/blob/main/02%20Data_Analisis_Visualization/01_Data%20Visualization%20Fundamentals/Traffic%20on%20the%20I-94%20Interstate%20highway.ipynb)
+[Traffic on the I-94 Interstate highway](https://github.com/albertjimrod/data-projects/blob/51eaa88de3b363a2541ab900ec9fa2b23ffe8627/02_Data_Analisis_Visualization/01_Data%20Visualization%20Fundamentals/Traffic%20on%20the%20I-94%20Interstate%20highway.ipynb)
 
 En este proyecto, exploré datos de tráfico de la autopista I-94 una importante vía de transporte en Estados Unidos que se extiende desde Montana hasta Michigan, pasando por varios estados.La autopista I-94 es conocida por ser una ruta principal para los viajes de larga distancia, ya que conecta ciudades importantes como Chicago, Milwaukee, Minneapolis y Detroit.y utilizamos la biblioteca pandas para analizar y visualizar los patrones de tráfico en diferentes momentos del día y en diferentes días de la semana.
 
@@ -40,7 +40,7 @@ En este proyecto, exploré datos de tráfico de la autopista I-94 una importante
 
 ## Proyecto 3: Visualización de Ganancias Basada en Carreras Universitarias
 
-[Visualizing Earnings Based On College Majors](https://github.com/albertjimrod/data-projects/blob/main/02%20Data_Analisis_Visualization/02_Storytelling%20Data%20Visualization%20and%20Information%20Design/Visualizing%20Earnings%20Based%20On%20College%20Majors/Guided%20Project%20Visualizing%20Earnings%20Based%20On%20College%20Majors_version_DQ.ipynb)
+[Visualizing Earnings Based On College Majors](https://github.com/albertjimrod/data-projects/blob/51eaa88de3b363a2541ab900ec9fa2b23ffe8627/02_Data_Analisis_Visualization/02_Storytelling%20Data%20Visualization%20and%20Information%20Design/Visualizing%20Earnings%20Based%20On%20College%20Majors/Guided%20Project%20Visualizing%20Earnings%20Based%20On%20College%20Majors_version_DQ.ipynb)
 
 En este proyecto, visualizamos datos de ganancias basadas en carreras universitarias. Utilizando pandas y Matplotlib, exploramos las relaciones entre las elecciones de carreras universitarias y las ganancias potenciales.
 
@@ -56,7 +56,7 @@ Principios de Gestalt y atributos preatentivos.
 
 ## Proyecto 4: Estudio de Caso de Estilos de Matplotlib: FiveThirtyEight
 
-[Matplotlib Styles: FiveThirtyEight Case Study](https://github.com/albertjimrod/data-projects/blob/main/02%20Data_Analisis_Visualization/03_Matplotlib%20Styles%20FiveThirtyEight%20Case%20Study/Matplotlib%20Styles%20FiveThirtyEight%20Case%20Study.ipynb)
+[Matplotlib Styles: FiveThirtyEight Case Study](https://github.com/albertjimrod/data-projects/blob/51eaa88de3b363a2541ab900ec9fa2b23ffe8627/02_Data_Analisis_Visualization/03_Matplotlib%20Styles%20FiveThirtyEight%20Case%20Study/Matplotlib%20Styles%20FiveThirtyEight%20Case%20Study.ipynb)
 
 
 En este proyecto, estudié el estilo de visualización de FiveThirtyEight, un conocido sitio web de noticias y análisis. estudié Matplotlib para recrear y personalizar visualizaciones en el estilo característico de FiveThirtyEight.
