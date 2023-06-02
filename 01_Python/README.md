@@ -8,7 +8,9 @@
 
 ## Proyecto 1: Perfiles Rentables para la App Store y Google Play Markets
 
-- [Profitable App Profiles for the App Store and Google Play Markets](https://github.com/albertjimrod/data-projects/blob/main/01%20Python/00-Profitable%20App%20Profiles%20for%20the%20App%20Store%20and%20Google%20Play%20Markets/Profitable%20App%20Profiles%20For%20The%20App%20Store%20And%20Google%20Play%20Markets.ipynb)
+- [Profitable App Profiles for the App Store and Google Play Markets](01_Python/00-Profitable App Profiles for the App Store and Google Play Markets/Profitable App Profiles For The App Store And Google Play Markets.ipynb)
+
+
 
 En este proyecto, exploramos datos de aplicaciones móviles disponibles en la App Store y Google Play Markets. Utilizamos Python para analizar, limpiar y visualizar los datos con el objetivo de identificar qué tipos de aplicaciones tienen más probabilidades de atraer a más usuarios y, por lo tanto, generar más ingresos a través de anuncios en la aplicación.
 
@@ -27,7 +29,7 @@ En este proyecto, exploramos datos de aplicaciones móviles disponibles en la Ap
 
 ## Proyecto 2: Exploración de Publicaciones de Hacker News
 
-- [Exploring Hacker News Posts](https://github.com/albertjimrod/data-projects/blob/main/01%20Python/01-Exploring%20Hacker%20News%20Posts/Exploring%20Hacker%20News%20Post_DQ_finish.ipynb)
+- [Exploring Hacker News Posts](01_Python/01-Exploring Hacker News Posts/Exploring Hacker News Post_DQ_finish.ipynb)
 
 En este proyecto, exploramos y analizamos las publicaciones de Hacker News, un sitio web popular de noticias y discusiones sobre tecnología. Utilizamos Python para analizar los datos de las publicaciones y responder preguntas interesantes, como qué tipo de publicaciones recibe más comentarios y qué horas del día son más propicias para recibir interacción de la comunidad.
 
