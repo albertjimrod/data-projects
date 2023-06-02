@@ -1,34 +1,119 @@
-# Proyectos de Análisis de Datos en Python, Numpy y Pandas.
+# Proyectos de Python.
 
 <img src="READ.jpeg" alt="READ" style="width:200px;"/>
 
 
+¡Bienvenidos a mi repositorio de proyectos de análisis de datos en Python! 
 
-¡Bienvenidos a mi repositorio de proyectos de análisis de datos en Python! Aquí encontrarás una colección de proyectos basados en los siguientes archivos:
 
-## Exploración de Perfiles de Aplicaciones Rentables para la App Store y Google Play Markets
+## Proyecto 1: Perfiles Rentables para la App Store y Google Play Markets
 
 - [Profitable App Profiles for the App Store and Google Play Markets](https://github.com/albertjimrod/data-projects/blob/main/01%20Python/00-Profitable%20App%20Profiles%20for%20the%20App%20Store%20and%20Google%20Play%20Markets/Profitable%20App%20Profiles%20For%20The%20App%20Store%20And%20Google%20Play%20Markets.ipynb)
 
-En este proyecto, exploré perfiles de aplicaciones rentables para la App Store y Google Play Markets. Utilicé técnicas de análisis de datos con Python para examinar conjuntos de datos y extraer información relevante. Aprendí sobre el uso de bibliotecas como pandas para manipular y analizar datos, y descubrí patrones y tendencias que pueden ayudar en la toma de decisiones relacionadas con el desarrollo de aplicaciones.
+En este proyecto, exploramos datos de aplicaciones móviles disponibles en la App Store y Google Play Markets. Utilizamos Python para analizar, limpiar y visualizar los datos con el objetivo de identificar qué tipos de aplicaciones tienen más probabilidades de atraer a más usuarios y, por lo tanto, generar más ingresos a través de anuncios en la aplicación.
 
-## Exploración de Publicaciones en Hacker News
+### Conceptos clave relacionados:
+
+- Introducción a Python Programming
+- Variables en Python
+- Tipos de datos en Python: enteros, flotantes, cadenas
+- Listas en Python
+- Bucles for y declaraciones condicionales en Python
+- Diccionarios y tablas de frecuencia en Python
+- Funciones en Python
+- Trabajo con fechas y tiempos en Python
+
+
+
+## Proyecto 2: Exploración de Publicaciones de Hacker News
 
 - [Exploring Hacker News Posts](https://github.com/albertjimrod/data-projects/blob/main/01%20Python/01-Exploring%20Hacker%20News%20Posts/Exploring%20Hacker%20News%20Post_DQ_finish.ipynb)
 
-En este proyecto, me sumergí en el análisis de publicaciones en Hacker News. Utilicé técnicas de limpieza de datos y análisis en Python para explorar las publicaciones y extraer información relevante. Aprendí a utilizar pandas para manipular y analizar datos tabulares, y descubrí insights interesantes sobre las publicaciones en Hacker News, como los momentos más activos y los tipos de publicaciones que reciben más comentarios.
+En este proyecto, exploramos y analizamos las publicaciones de Hacker News, un sitio web popular de noticias y discusiones sobre tecnología. Utilizamos Python para analizar los datos de las publicaciones y responder preguntas interesantes, como qué tipo de publicaciones recibe más comentarios y qué horas del día son más propicias para recibir interacción de la comunidad.
 
-## Resumen
+### Conceptos clave relacionados:
 
-A lo largo de estos proyectos, he adquirido habilidades y conocimientos en diversos aspectos del análisis de datos en Python. Algunos de los temas abordados incluyen:
+- Introducción a Python Programming
+- Variables en Python
+- Tipos de datos en Python: enteros, cadenas
+- Listas en Python
+- Bucles for y declaraciones condicionales en Python
+- Funciones en Python
+- Trabajo con fechas y tiempos en Python
 
-- Introducción a NumPy
-- Indexación booleana con NumPy
-- Introducción a pandas
-- Exploración de datos con pandas: fundamentos e intermedio
-- Fundamentos de limpieza de datos
 
-Estos proyectos me han proporcionado una base sólida para realizar análisis de datos en Python, utilizando herramientas como pandas y NumPy. Espero que estos proyectos te resulten interesantes y útiles para tu propio aprendizaje en el campo del análisis de datos.
+Estos proyectos son ejemplos prácticos de cómo aplicar los conceptos clave de la programación en Python a situaciones reales. 
 
-Si tienes alguna pregunta o sugerencia, no dudes en contactarme. ¡Disfruta explorando los proyectos!
+Te invito a explorar los enlaces proporcionados para ver el código y obtener más detalles sobre cada proyecto.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+En este repositorio, encontrarás dos proyectos de Python que abarcan una variedad de conceptos clave de programación en Python. A continuación, se presenta una breve descripción de cada proyecto y cómo se relacionan con los conceptos clave mencionados.
+
+
+
+
+## Exploración de Publicaciones en Hacker News
+
+
+
+En este proyecto, exploramos datos de aplicaciones móviles disponibles en la App Store y Google Play Markets. Utilizamos Python para analizar, limpiar y visualizar los datos con el objetivo de identificar qué tipos de aplicaciones tienen más probabilidades de atraer a más usuarios y, por lo tanto, generar más ingresos a través de anuncios en la aplicación.
+
+### Conceptos clave relacionados:
+
+- Introducción a Python Programming
+- Variables en Python
+Tipos de datos en Python: enteros, flotantes, cadenas
+Listas en Python
+Bucles for y declaraciones condicionales en Python
+Diccionarios y tablas de frecuencia en Python
+Funciones en Python
+Trabajo con fechas y tiempos en Python
+Proyecto 2: Exploración de Publicaciones de Hacker News
+Enlace al proyecto
+
+En este proyecto, exploramos y analizamos las publicaciones de Hacker News, un sitio web popular de noticias y discusiones sobre tecnología. Utilizamos Python para analizar los datos de las publicaciones y responder preguntas interesantes, como qué tipo de publicaciones recibe más comentarios y qué horas del día son más propicias para recibir interacción de la comunidad.
+
+Conceptos clave relacionados:
+
+Introducción a Python Programming
+Variables en Python
+Tipos de datos en Python: enteros, cadenas
+Listas en Python
+Bucles for y declaraciones condicionales en Python
+Funciones en Python
+Trabajo con fechas y tiempos en Python
+Estos proyectos son ejemplos prácticos de cómo aplicar los conceptos clave de la programación en Python a situaciones reales. Te invito a explorar los enlaces proporcionados para ver el código y obtener más detalles sobre cada proyecto.
