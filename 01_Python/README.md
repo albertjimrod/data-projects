@@ -29,7 +29,7 @@ En este proyecto, exploramos datos de aplicaciones móviles disponibles en la Ap
 
 ## Proyecto 2: Exploración de Publicaciones de Hacker News
 
-- [Exploring Hacker News Posts](01_Python/01-Exploring Hacker News Posts/Exploring Hacker News Post_DQ_finish.ipynb)
+- [Exploring Hacker News Posts](01_Python/00-Profitable App Profiles for the App Store and Google Play Markets/Profitable App Profiles For The App Store And Google Play Markets.ipynb)
 
 En este proyecto, exploramos y analizamos las publicaciones de Hacker News, un sitio web popular de noticias y discusiones sobre tecnología. Utilizamos Python para analizar los datos de las publicaciones y responder preguntas interesantes, como qué tipo de publicaciones recibe más comentarios y qué horas del día son más propicias para recibir interacción de la comunidad.
 
