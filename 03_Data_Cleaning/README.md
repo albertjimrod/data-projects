@@ -19,6 +19,6 @@ El proyecto [Star Wars Survey](https://github.com/albertjimrod/data-projects/blo
 
 En el proyecto [Analyzing NYC High School Data](https://github.com/albertjimrod/data-projects/blob/main/03_Data_Cleaning/03_Analyzing%20NYC%20High%20School%20Data/NYC_Analize%20Combine%20Visualizing.ipynb), me enfoqué en el análisis de datos de escuelas secundarias de Nueva York. Utilicé Pandas para identificar y manejar datos faltantes y duplicados, lo que me permitió obtener información precisa y confiable para realizar análisis comparativos.
 
-Espero que encuentres estos proyectos interesantes y útiles. No dudes en explorar cada enlace para obtener más detalles y ver el código y los resultados obtenidos. ¡Disfruta aprendiendo y analizando datos!
-os enlaces a los proyectos en el README con los enlaces reales a tus proyectos correspondientes.
+<br>
 
+Espero que encuentres estos proyectos interesantes y útiles.
