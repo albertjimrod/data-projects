@@ -1,6 +1,11 @@
 # Exploratory Data Analysis in Python: A Deep Dive into DataPrep and Manual Steps
 
 
+<img src="jpg/dataprep-logo.png" alt="drawing" width="200"/>
+
+<img src="jpg/Python_logo.png" alt="drawing" width="200"/>
+
+
 
 In the realm of data analysis, understanding and visualizing the structure and characteristics of our dataset is paramount. 
 This document delves into two approaches for conducting exploratory data analysis in Python: one through the "dataprep" library and the other involving manual steps.
