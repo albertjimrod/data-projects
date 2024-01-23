@@ -3,7 +3,7 @@
 
 <img src="jpg/dataprep-logo.png" alt="drawing" width="200"/>
 
-<img src="jpg/Python_logo.png" alt="drawing" width="200"/>
+<img src="jpg/Python_logo.jpg" alt="drawing" width="200"/>
 
 
 
