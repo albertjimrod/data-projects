@@ -57,3 +57,7 @@ In contrast, we can also conduct exploratory data analysis manually in Python, u
 ...
 
 This document provides a comprehensive comparison between the efficiency and convenience of using "DataPrep Report" and the in-depth analysis obtained through manual steps in Python. The choice between these approaches depends on the specific analysis needs and user preferences.
+
+In case you work with virtual environments such as Miniconda, here is the Yaml file with which you can install the libraries in isolation on your system:
+
+`conda env create -f eda_dataprep.yaml`
