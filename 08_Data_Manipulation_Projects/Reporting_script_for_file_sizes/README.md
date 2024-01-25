@@ -1,6 +1,3 @@
-Por supuesto, aquí tienes un README en formato Markdown que describe lo que hace el código proporcionado:
-
----
 
 # File Size Checker
 
